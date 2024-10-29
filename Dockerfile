@@ -15,7 +15,9 @@ COPY ./api /var/www/html/api
 COPY ./public /var/www/html/public
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www/html
+RUN mkdir -p /var/www/html/public/notes && \
+    chown -R www-data:www-data /var/www/html && \
+    chmod -R 775 /var/www/html/public/notes
 
 # Create a startup script
 WORKDIR /var/www/html
